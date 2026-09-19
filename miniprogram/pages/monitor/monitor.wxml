@@ -1,0 +1,47 @@
+<view class="container">
+  <!-- 添加消息 -->
+  <view class="card">
+    <view class="section-title">录入群消息</view>
+    <textarea
+      class="textarea"
+      placeholder="粘贴群消息内容"
+      maxlength="1000"
+      value="{{messageText}}"
+      bindinput="onMessageInput"
+      auto-height
+    />
+    <button class="btn-primary" bindtap="onAddMessage" loading="{{loading}}">
+      {{loading ? '分析中...' : '录入 + AI分析'}}
+    </button>
+  </view>
+
+  <!-- 消息列表 -->
+  <view class="card" wx:if="{{messages.length === 0 && !loading}}">
+    <view class="empty">暂无监控消息</view>
+  </view>
+
+  <view class="card" wx:for="{{messages}}" wx:key="_id">
+    <view class="msg-item {{item.is_abnormal ? 'msg-abnormal' : ''}}">
+      <view class="msg-text">{{item.message_text}}</view>
+      <view class="msg-meta">
+        <text>发送者: {{item.sender || '未知'}}</text>
+        <text>{{item.created_at}}</text>
+      </view>
+      <view class="msg-ai" wx:if="{{item.ai_category}}">
+        <text class="ai-label">AI判定：</text>
+        <text class="ai-category">{{item.ai_category}}</text>
+        <text class="ai-reason">{{item.ai_reason}}</text>
+      </view>
+      <view class="msg-status">
+        <text wx:if="{{item.status === 'pending'}}" class="status-pending">待确认</text>
+        <text wx:elif="{{item.status === 'confirmed'}}" class="status-confirmed">已确认</text>
+        <text wx:elif="{{item.status === 'rejected'}}" class="status-rejected">已驳回</text>
+        <text wx:else class="status-ok">正常</text>
+      </view>
+      <view class="msg-actions" wx:if="{{item.status === 'pending'}}">
+        <button size="mini" type="primary" bindtap="onConfirm" data-id="{{item._id}}">确认</button>
+        <button size="mini" bindtap="onReject" data-id="{{item._id}}">驳回</button>
+      </view>
+    </view>
+  </view>
+</view>

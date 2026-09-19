@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">标记异常消息</view>
+    <view class="form-group">
+      <view class="label">消息内容</view>
+      <textarea
+        class="textarea"
+        placeholder="粘贴或输入群内异常消息"
+        maxlength="500"
+        value="{{messageText}}"
+        bindinput="e => setData({ messageText: e.detail.value })"
+        auto-height
+      />
+    </view>
+    <view class="form-group">
+      <view class="label">原因</view>
+      <picker mode="selector" range="{{reasons}}" value="{{reasons.indexOf(reason)}}" bindchange="onReasonChange">
+        <view class="picker">{{reason}}</view>
+      </picker>
+    </view>
+    <view class="form-group">
+      <view class="label">建议踢出</view>
+      <switch checked="{{suggestKick}}" bindchange="toggleKick" />
+    </view>
+    <button class="btn-primary" bindtap="onSubmit" loading="{{marking}}">提交标记</button>
+    <view class="success-tip" wx:if="{{marked}}">✓ 已标记，可继续下一条</view>
+  </view>
+</view>

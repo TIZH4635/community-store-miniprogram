@@ -1,0 +1,68 @@
+<view class="container">
+  <!-- 标题 -->
+  <view class="card">
+    <input
+      class="input"
+      placeholder="请输入标题"
+      maxlength="50"
+      value="{{title}}"
+      bindinput="onTitleInput"
+    />
+    <view class="hint">标题 {{title.length}}/50</view>
+  </view>
+
+  <!-- 描述 -->
+  <view class="card">
+    <textarea
+      class="textarea"
+      placeholder="请输入描述（选填）"
+      maxlength="500"
+      value="{{description}}"
+      bindinput="onDescriptionInput"
+      auto-height
+    />
+  </view>
+
+  <!-- 照片区域 -->
+  <view class="card">
+    <view class="section-title">照片 {{photos.length}}/5</view>
+    <view class="photo-grid">
+      <block wx:for="{{photos}}" wx:key="index">
+        <view class="photo-item">
+          <image
+            class="photo-img"
+            src="{{item}}"
+            mode="aspectFill"
+            bindtap="previewPhoto"
+            data-index="{{index}}"
+          />
+          <view class="photo-delete" bindtap="removePhoto" data-index="{{index}}">✕</view>
+        </view>
+      </block>
+      <view class="photo-add" wx:if="{{photos.length < maxPhotos}}" bindtap="choosePhoto">
+        <text class="photo-add-icon">+</text>
+        <text class="photo-add-text">添加</text>
+      </view>
+    </view>
+    <view class="hint">至少2张，最多5张，单张≤3MB（超限自动压缩）</view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="btn-row">
+    <button class="btn-primary" bindtap="onPreview">预览分享卡片</button>
+    <button class="btn-reset" bindtap="onReset">重置</button>
+  </view>
+
+  <!-- 预览弹层 -->
+  <view class="preview-mask" wx:if="{{previewVisible}}" bindtap="onClosePreview">
+    <view class="preview-card" catchtap="">
+      <view class="preview-title">{{title || '暂无标题'}}</view>
+      <image class="preview-img" src="{{photos[0]}}" mode="aspectFill" wx:if="{{photos.length > 0}}" />
+      <view class="preview-desc">{{description || '社区商店商品信息'}}</view>
+      <view class="preview-photos" wx:if="{{photos.length > 1}}">
+        <text>+{{photos.length - 1}}张照片</text>
+      </view>
+      <view class="preview-hint">长按卡片可直接转发到微信群</view>
+    </view>
+  </view>
+</view>

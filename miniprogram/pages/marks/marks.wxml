@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="card">
+    <picker mode="selector" range="{{['全部','待处理']}}" value="{{filter === 'pending' ? 1 : 0}}" bindchange="onFilterChange">
+      <view class="filter">{{filter === 'pending' ? '待处理' : '全部'}}</view>
+    </picker>
+  </view>
+
+  <view class="card" wx:if="{{marks.length === 0 && !loading}}">
+    <view class="empty">暂无记录</view>
+  </view>
+
+  <view class="card" wx:for="{{marks}}" wx:key="_id">
+    <view class="mark-item">
+      <view class="mark-msg">{{item.message_text}}</view>
+      <view class="mark-reason">{{item.reason}}</view>
+      <view class="mark-meta">
+        <text>标记人: {{item.marker_id}}</text>
+        <text>{{item.created_at}}</text>
+      </view>
+      <view class="mark-status" wx:if="{{item.status === 'pending'}}">
+        <button size="mini" bindtap="onResolve" data-id="{{item._id}}">标记已处理</button>
+      </view>
+      <view class="mark-status resolved" wx:else>已处理</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,166 @@
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.input {
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 12rpx;
+}
+
+.textarea {
+  font-size: 28rpx;
+  min-height: 120rpx;
+}
+
+.hint {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.section-title {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.photo-item {
+  position: relative;
+  width: 22%;
+  padding-bottom: 22%;
+}
+
+.photo-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 8rpx;
+}
+
+.photo-delete {
+  position: absolute;
+  top: -8rpx; right: -8rpx;
+  width: 40rpx; height: 40rpx;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.photo-add {
+  width: 22%;
+  padding-bottom: 22%;
+  border: 2rpx dashed #ccc;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-add-icon {
+  font-size: 40rpx;
+  color: #ccc;
+  line-height: 1;
+}
+
+.photo-add-text {
+  font-size: 20rpx;
+  color: #ccc;
+  margin-top: 4rpx;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  padding: 20rpx 0 40rpx;
+}
+
+.btn-primary {
+  flex: 1;
+  background: #07c160;
+  color: #fff;
+  border-radius: 8rpx;
+  min-width: 200rpx;
+}
+
+.btn-reset {
+  flex: 1;
+  background: #fff;
+  color: #333;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  min-width: 200rpx;
+}
+
+/* 预览弹层 */
+.preview-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.preview-card {
+  width: 600rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.preview-img {
+  width: 600rpx;
+  height: 400rpx;
+  border-radius: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.preview-desc {
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 16rpx;
+}
+
+.preview-photos {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.preview-hint {
+  font-size: 22rpx;
+  color: #07c160;
+}

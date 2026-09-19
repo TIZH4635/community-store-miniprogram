@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">推送时间（每天）</view>
+    <view class="time-list">
+      <view class="time-item" wx:for="{{pushTimes}}" wx:key="index">
+        <text class="time-label">第{{index + 1}}次</text>
+        <picker mode="time" value="{{item}}" bindchange="onTimeChange" data-index="{{index}}">
+          <view class="time-value">{{item}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="hint">提醒店员在指定时间发布商品信息到微信群</view>
+  </view>
+
+  <view class="btn-row">
+    <button class="btn-primary" bindtap="onSave" loading="{{saving}}">保存</button>
+  </view>
+
+  <view class="saved-tip" wx:if="{{saved}}">已保存</view>
+</view>

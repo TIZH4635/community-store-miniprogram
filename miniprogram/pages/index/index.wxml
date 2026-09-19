@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="card">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" wx:if="{{userInfo.avatarUrl}}" />
+      <view class="user-text">
+        <view class="user-name">{{userInfo.nickName}}</view>
+        <view class="user-role">{{role === 'store_admin' ? '管理员' : '店员'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{!userInfo}}">
+    <view class="empty">未登录</view>
+  </view>
+
+  <view class="card">
+    <view class="menu-item" bindtap="navigateToPublish">
+      <text class="menu-icon">📝</text>
+      <text>信息发布</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToMark">
+      <text class="menu-icon">🚩</text>
+      <text>发言标记</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToAI">
+      <text class="menu-icon">🤖</text>
+      <text>AI 识别</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToMonitor">
+      <text class="menu-icon">👁</text>
+      <text>群消息监控</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{role === 'store_admin'}}">
+    <view class="menu-item" bindtap="navigateToPush">
+      <text class="menu-icon">⏰</text>
+      <text>推送时间设置</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToMarks">
+      <text class="menu-icon">📋</text>
+      <text>标记记录</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item">
+      <text class="menu-icon">⚙️</text>
+      <text>管理后台</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <button class="btn-logout" bindtap="onLogout" wx:if="{{userInfo}}">退出登录</button>
+</view>

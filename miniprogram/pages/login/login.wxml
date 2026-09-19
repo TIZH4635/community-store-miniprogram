@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="card center">
+    <view class="avatar">店</view>
+    <view class="nickname">店员登录</view>
+    <view class="desc">社区商店微信群运营小程序</view>
+    <button class="btn-login" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" loading="{{loading}}">
+      微信一键登录
+    </button>
+  </view>
+</view>

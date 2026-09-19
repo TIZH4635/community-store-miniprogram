@@ -1,0 +1,57 @@
+{
+  "description": "社区商店微信群运营小程序",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "apiReport": true,
+    "condenseCache": false,
+    "optimization": {
+      "scope": "global",
+      "group": "strict"
+    },
+    "showES6CompileOption": false,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "minifyWXSS": true,
+    "disableFrameAlias": false,
+    "packNpmManually": false,
+    "compileWorklet": false,
+    "packNpmRelationList": [],
+    "minifyWXML": true,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.3.4",
+  "appid": "wxe556304e15743104",
+  "projectname": "community-store",
+  "condition": {},
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
+}

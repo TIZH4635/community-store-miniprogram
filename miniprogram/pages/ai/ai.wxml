@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">粘贴群消息</view>
+    <textarea
+      class="textarea"
+      placeholder="粘贴客户发的消息内容"
+      maxlength="1000"
+      value="{{messageText}}"
+      bindinput="onMessageInput"
+      auto-height
+    />
+    <button class="btn-primary" bindtap="onAnalyze" loading="{{loading}}">AI 分析</button>
+  </view>
+
+  <view class="card" wx:if="{{result}}">
+    <view class="section-title">分析结果</view>
+    <view class="result-row">
+      <text class="result-label">是否异常：</text>
+      <text class="{{result.is_abnormal ? 'text-red' : 'text-green'}}">
+        {{result.is_abnormal ? '是' : '否'}}
+      </text>
+    </view>
+    <view class="result-row" wx:if="{{result.is_abnormal}}">
+      <text class="result-label">类别：</text>
+      <text>{{result.category}}</text>
+    </view>
+    <view class="result-row" wx:if="{{result.is_abnormal}}">
+      <text class="result-label">原因：</text>
+      <text>{{result.reason}}</text>
+    </view>
+    <view class="result-row" wx:if="{{result.suggested_keywords && result.suggested_keywords.length > 0}}">
+      <text class="result-label">建议敏感词：</text>
+      <text>{{result.suggested_keywords.join('、')}}</text>
+    </view>
+    <button class="btn-primary" bindtap="onConfirm" loading="{{loading}}" wx:if="{{result.is_abnormal}}">
+      确认标记 + 更新词库
+    </button>
+  </view>
+
+  <view class="card" wx:if="{{keywords.length > 0}}">
+    <view class="section-title">敏感词库（{{keywords.length}}条）</view>
+    <view class="keyword-list">
+      <text wx:for="{{keywords}}" wx:key="*this" class="keyword-tag">{{item}}</text>
+    </view>
+  </view>
+</view>
