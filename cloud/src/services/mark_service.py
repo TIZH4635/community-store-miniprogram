@@ -1,7 +1,7 @@
 """发言标记业务逻辑"""
 
 from datetime import datetime
-from src.models.mark import MarkRecord
+from src.models.mark import MarkCreate, MarkRecord
 
 
 class MarkService:
