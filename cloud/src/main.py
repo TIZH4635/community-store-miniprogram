@@ -14,8 +14,7 @@ app.add_middleware(
 )
 
 # ---------- 路由注册 ----------
-from src.routes import publish, setting, mark, ai, monitor
-app.include_router(publish.router)
+from src.routes import setting, mark, ai, monitor
 app.include_router(setting.router)
 app.include_router(mark.router)
 app.include_router(ai.router)
